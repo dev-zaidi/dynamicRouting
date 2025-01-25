@@ -8,7 +8,7 @@ const Details = () => {
   const { id } = useParams();
   const navigate = useNavigate();
 
-  // Find the product based on the ID from the URL
+
   const product = Data.find((item) => item.id === parseInt(id));
 
   if (!product) {
@@ -18,17 +18,18 @@ const Details = () => {
   return (
     <div className="container">
         <div>
-      <button className=" btn btn-primary" onClick={() => navigate("/")}>
+      <button className=" btn btn-outline-primary m-4" onClick={() => navigate("/")}>
       <FaHome />
       </button>
       <br /><br />
-      <div>
+      <div style={{boxShadow:"5px 5px 5px grey", borderRadius:"25px", padding:"15px" 
+      }} >
         <img
           src={product.image}
           alt={product.title}
-          style={{ width: "300px", height: "300px", objectFit: "cover" }}
+          style={{ width: "300px", height: "300px", objectFit: "cover", borderRadius:"25px" }}
         />
-        <div>
+        <div style={{padding:"10px"}}>
           <h2>{product.title}</h2>
           <p><strong>Price:</strong> ${product.price.toFixed(2)}</p>
           <p><strong>Description:</strong> {product.description}</p>
