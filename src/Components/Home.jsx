@@ -13,8 +13,9 @@ const Home = () => {
           style={{
             // border: "1px solid grey",
             borderRadius: "10px",
-            padding: "15px",
-            width: "250px",
+            // padding: "15px",
+            width: "260px",
+
             textAlign: "center",
             boxShadow:"2px 2px 5px grey"
           }}
@@ -22,11 +23,11 @@ const Home = () => {
           <img
             src={product.image}
             alt={product.title}
-            style={{ width: "100%", height: "180px", objectFit: "cover", borderRadius:"25px", boxShadow:"2px 2px 5px grey" }}
+            style={{ width: "100%", height: "180px", objectFit: "cover", padding:"10px"}}
           />
           <p>{product.title.slice(0,25)}</p>
-          <p>{product.description.slice(0,80)}</p>
-            <button  onClick={()=>{navigate(`/product/${product.id}`)}} className="btn btn-outline-primary">View</button>   
+          <p>{product.description.slice(0,89)}</p>
+            <button  onClick={()=>{navigate(`/product/${product.id}`)}} className="btn btn-outline-primary m-2">View</button>   
         </div>
       ))}
     </div>
