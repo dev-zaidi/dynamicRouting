@@ -1,32 +1,32 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Data from "../Data"; 
 import 'bootstrap/dist/css/bootstrap.min.css'
 
 const Home = () => {
+     const navigate= useNavigate();
   return (
-    <div style={{ display: "flex", flexWrap: "wrap", gap: "10px", padding: "10px" }}>
+    <div style={{ display: "flex", flexWrap: "wrap", gap: "10px", padding: "10px", justifyContent: "center"}}>
       {Data.map((product) => (
         <div
           key={product.id}
           style={{
-            border: "1px solid #ccc",
+            // border: "1px solid grey",
             borderRadius: "10px",
-            padding: "5px",
+            padding: "15px",
             width: "250px",
             textAlign: "center",
+            boxShadow:"2px 2px 5px grey"
           }}
         >
           <img
             src={product.image}
             alt={product.title}
-            style={{ width: "100%", height: "200px", objectFit: "cover" }}
+            style={{ width: "100%", height: "180px", objectFit: "cover", borderRadius:"25px", boxShadow:"2px 2px 5px grey" }}
           />
-          <h3>{product.title}</h3>
-          <p>${product.price.toFixed(2)}</p>
-          <Link to={`/product/${product.id}`}>
-            <button className="btn btn-primary">View Details</button>
-          </Link>
+          <p>{product.title.slice(0,25)}</p>
+          <p>{product.description.slice(0,80)}</p>
+            <button  onClick={()=>{navigate(`/product/${product.id}`)}} className="btn btn-outline-primary">View</button>   
         </div>
       ))}
     </div>
